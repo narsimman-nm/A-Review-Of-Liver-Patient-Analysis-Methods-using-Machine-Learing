@@ -1,0 +1,70 @@
+from sklearn.ensemble import RandomForestClassifier 
+model1=RandomForestClassifier()
+model1.fit(x_train_smote, y_train_smote) 
+y_predict=model1.predict(x_test)
+rfc1=accuracy_score(y_test,y_predict)
+rfc1
+pd.crosstab(y_test, y_predict) 
+print(classification_report(y_test, y_predict))
+
+from sklearn.tree import DecisionTreeClassifier 
+model4=DecisionTreeClassifier()
+model4.fit(x_train_smote, y_train_smote)
+y_predict=model4.predict(x_test) 
+dtc1=accuracy_score(y_test,y_predict)
+dtc1 
+pd.crosstab(y_test,y_predict)
+print(classification_report(y_test, y_predict))
+
+import tensorflow.keras
+from tensorflow.keras.models 
+import sequential from tensorflow.keras.layers import Dense
+
+classifier = Sequential()
+
+classifier.add(Dense(units=100, activation='relu', input_dim=10))
+
+classifier.add(Dense(units=50, activation='relu'))
+
+classifier.add(Dense(units=1, activation='sigmoid'))
+
+classifier.compile(optimizer='adam', loss='binary_crossentopy', metrics=['accuracy'])
+
+model_history = classifier.fit(x_train, y_train, batch_size=100, validation_split=0.2, 
+                               epochs=100)
+
+                               model4.predict([[50,1,1.2,0.8,150,70,80,7.2,3.4,0.8]])
+
+                               model1.predict([[50,1,1.2,0.8,150,70,80,7.2,3.4,0.8]])
+                               classifier.save("liver.hs")
+
+
+acc_smote= [['KNN Classifier', Knn1], ['RandomForestClassifier', rfc1], 
+            ['DecisionTreeClassifier', dtc1], ['LogisticRegression', logi1]] 
+Liverpatient_pred= pd.DataFrame(acc_smote, columns = ['classification models', 'accuracy_score'])
+Liverpatient_pred
+
+plt.figure(figsize=(7,5)) 
+plt.xticks(rotation=90)
+plt.title('Classification models & accuracy scores after SMOTE',fontsize=18) 
+sns.barplot(x="classification models", y="accuracy_score", 
+data=Liverpatient_pred,palette = "Set2")
+
+from sklearn.ensemble import ExtraTreesClassifier 
+model=ExtraTreesClassifier()
+model.fit(x,y)
+
+ExtraTreesClassifier()
+
+model.feature_importances_ 
+dd=pd.DataFrame(model.feature_importances_,index=X.columns).sort_values(0,ascendi
+ ng=False)
+dd
+
+dd.plot(kind='barch', figsize=(7,6)) 
+
+
+plt.title("FEATURE IMPORTANCE",fontsize=14)
+
+import joblib 
+joblib.dump(model1, 'ETC.pkl')

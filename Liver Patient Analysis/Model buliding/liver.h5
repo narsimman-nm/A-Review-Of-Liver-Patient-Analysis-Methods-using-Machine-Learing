@@ -1,0 +1,18 @@
+classifier.save("liver.h5")
+y_pred = classifier.predict(x_test) 
+y_pred
+
+y_pred = (y_pred > 0.5) 
+y_pred
+
+def predict_exit(sample_value):
+    sample_value = np.array(sample_value) 
+    sample_value = sample_value.reshape(1,-1) 
+    sample_value = scale(sample_value)
+return classifier.predict(sample_value)
+
+sample_value = [[50,1,1.2,0.8,150,70,80,7.2,3.4,0.8]]
+if predict_exit(sample_value)>0.5:
+print('Prediction: Liver patient') 
+else:
+print('Prediction: Healthy')
